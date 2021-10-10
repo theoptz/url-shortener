@@ -25,7 +25,7 @@ func init() {
   "info": {
     "description": "Distributed URL Shortener",
     "title": "URL Shortener",
-    "version": "1.0.0"
+    "version": "0.1.0"
   },
   "host": "localhost:8080",
   "paths": {
@@ -143,7 +143,7 @@ func init() {
   "info": {
     "description": "Distributed URL Shortener",
     "title": "URL Shortener",
-    "version": "1.0.0"
+    "version": "0.1.0"
   },
   "host": "localhost:8080",
   "paths": {

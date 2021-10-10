@@ -7,7 +7,7 @@
 //    http
 //  Host: localhost:8080
 //  BasePath: /
-//  Version: 1.0.0
+//  Version: 0.1.0
 //
 //  Consumes:
 //    - application/json

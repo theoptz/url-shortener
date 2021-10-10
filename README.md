@@ -11,7 +11,7 @@
 - Made with Clean Architecture in mind (handlers -> services -> repositories)
 - Includes service & handler go tests based on auto-generated mocks with go:generate and mockery
 - Uses 62 symbols for encoding/decoding keys
-- Can store up to 3.5 trillion keys. It's enough for more 100 years on 1000 rps :fire:
+- Can store up to 3.5 trillion keys. It's enough for more than 100 years on 1000 rps :fire:
 - Contains 3 API nodes, but you can easily add new nodes
 - Coordinates API nodes via etcd
 - Stores data in mongodb (For simplicity the app uses one instance but in production mode you should definitely use mongodb cluster)
