@@ -1,6 +1,4 @@
-![Go Report](https://goreportcard.com/badge/github.com/theoptz/url-shortener)
 ![Repository Top Language](https://img.shields.io/github/languages/top/theoptz/url-shortener)
-![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/quality/g/theoptz/url-shortener/main)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/theoptz/url-shortener)
 
 # Distributed URL shortener
