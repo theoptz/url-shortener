@@ -1,0 +1,81 @@
+swagger: "2.0"
+info:
+  title: URL Shortener
+  description: Distributed URL Shortener
+  version: 1.0.0
+
+host: localhost:8080
+schemes:
+  - http
+
+definitions:
+  Link:
+    properties:
+      url:
+        type: string
+
+    required:
+      - url
+  Code:
+    properties:
+      code:
+        type: string
+        minLength: 5
+    required:
+      - code
+
+paths:
+  /links:
+    post:
+      summary: creates a short link for specified link
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: link
+          required: true
+          description: The link to process
+          schema:
+            $ref: '#/definitions/Link'
+            example:
+              url: "https://example.com"
+
+      produces:
+        - application/json
+      responses:
+        200:
+          description: The code for specified link
+          schema:
+            $ref: '#/definitions/Code'
+            example:
+              application/json:
+                code: "Avc2K"
+        400:
+          description: The specified link is not an URL
+        500:
+          description: Internal server error
+
+  /links/{code}:
+    get:
+      summary: return full link by code
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: code
+          type: string
+          minLength: 5
+          required: true
+          description: short code
+      responses:
+        200:
+          description: link object
+          schema:
+            $ref: '#/definitions/Link'
+            example:
+              application/json:
+                url: "https://example.com/"
+        404:
+          description: A link with specified code was not found
+        500:
+          description: Internal server error

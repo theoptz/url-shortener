@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "520fcda5-5efb-4534-86fc-57c0c11c0676",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "200 OK on GET localhost:8080/links/{code}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/links/11g2J",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links",
+						"11g2J"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 Not Found on GET localhost:8080/links/{code}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/links/not_found",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links",
+						"not_found"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "422 Unprocessable Entity on GET localhost:8080/links/{code}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/links/not_found",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links",
+						"not_found"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 OK on POST localhost:8080/links",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://example.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/links",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Bad Request ON POST localhost:8080/links",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/links",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "422 Unprocessable Entity ON POST localhost:8080/links",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/links",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"links"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

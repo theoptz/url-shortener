@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  etcd:
+    image: 'bitnami/etcd:3'
+    restart: always
+    hostname: etcd
+    environment:
+      ALLOW_NONE_AUTHENTICATION: 'yes'
+
+  mongodb:
+    image: 'mongo:4.4'
+    restart: always
+    hostname: mongodb
+    volumes:
+      - ./deployments/mongodb/init.js:/docker-entrypoint-initdb.d/init.js:ro
+
+  api1:
+    depends_on:
+      - etcd
+      - mongodb
+    restart: always
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    environment:
+      name: 'api1'
+    env_file:
+      - ./deployments/.env
+
+  api2:
+    depends_on:
+      - etcd
+      - mongodb
+    restart: always
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    environment:
+      name: 'api2'
+    env_file:
+      - ./deployments/.env
+
+  api3:
+    depends_on:
+      - etcd
+      - mongodb
+    restart: always
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    environment:
+      name: 'api3'
+    env_file:
+      - ./deployments/.env
+
+  nginx:
+    depends_on:
+      - api1
+      - api2
+      - api3
+    restart: always
+    image: 'nginx:1.21-alpine'
+    links:
+      - api1
+      - api2
+      - api3
+    ports:
+      - '8080:80'
+    volumes:
+      - ./deployments/nginx:/etc/nginx/conf.d:ro
+
